@@ -40,7 +40,6 @@ public class TennisGameTest {
         assertEquals(SCORE_FIFTEEN_ALL, score);
     }
 
-
     @Test
     public void testScoreThirtyAll() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
@@ -53,4 +52,19 @@ public class TennisGameTest {
         String score = game.getScore();
         assertEquals(SCORE_THIRTY_ALL, score);
     }
+
+    @Test
+    public void testScoreDeuce() throws Exception {
+        TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+
+        for(int i=0; i<3;i++){
+            game.wonPoint(PLAYER_ONE);
+            game.wonPoint(PLAYER_TWO);
+        }
+
+        String score = game.getScore();
+        assertEquals(SCORE_DEUCE, score);
+    }
+    
+
 }
