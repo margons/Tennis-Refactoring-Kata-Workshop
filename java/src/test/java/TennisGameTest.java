@@ -212,4 +212,19 @@ public class TennisGameTest {
         String score = game.getScore();
         assertEquals(SCORE_THIRTY + "-" + SCORE_FIFTEEN, score);
     }
+
+    @Test
+    public void testScoreThirtyForty() throws Exception {
+        TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+
+        for (int i = 0; i < 2; i++) {
+            game.wonPoint(PLAYER_ONE);
+        }
+        for (int i = 0; i < 3; i++) {
+            game.wonPoint(PLAYER_TWO);
+        }
+
+        String score = game.getScore();
+        assertEquals(SCORE_THIRTY + "-" + SCORE_FORTY, score);
+    }
 }
