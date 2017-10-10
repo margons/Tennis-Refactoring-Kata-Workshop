@@ -24,6 +24,7 @@ public class TennisGameTest {
     @Test
     public void testScoreLoveAll() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+
         String score = game.getScore();
         assertEquals(SCORE_LOVE_ALL, score);
     }
@@ -31,10 +32,25 @@ public class TennisGameTest {
     @Test
     public void testScoreFifteenAll() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+
         game.wonPoint(PLAYER_ONE);
         game.wonPoint(PLAYER_TWO);
+
         String score = game.getScore();
         assertEquals(SCORE_FIFTEEN_ALL, score);
     }
 
+
+    @Test
+    public void testScoreThirtyAll() throws Exception {
+        TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+
+        for(int i=0; i<2;i++){
+            game.wonPoint(PLAYER_ONE);
+            game.wonPoint(PLAYER_TWO);
+        }
+
+        String score = game.getScore();
+        assertEquals(SCORE_THIRTY_ALL, score);
+    }
 }
