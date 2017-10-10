@@ -80,5 +80,19 @@ public class TennisGameTest {
         assertEquals(SCORE_ADVANTAGE_PLAYER_ONE, score);
     }
 
+    @Test
+    public void testScoreAdvantagePlayerTwo() throws Exception {
+        TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+
+        for(int i=0; i<3;i++){
+            game.wonPoint(PLAYER_ONE);
+            game.wonPoint(PLAYER_TWO);
+        }
+        game.wonPoint(PLAYER_TWO);
+
+        String score = game.getScore();
+        assertEquals(SCORE_ADVANTAGE_PLAYER_TWO, score);
+    }
+
 
 }
