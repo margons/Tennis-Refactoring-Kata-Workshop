@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 public class TennisGameTest {
 
-    static final String PLAYER_ONE = "playerOne";
-    static final String PLAYER_TWO = "playerTwo";
+    static final String PLAYER_ONE = "player1";
+    static final String PLAYER_TWO = "player2";
 
     static final String SCORE_LOVE_ALL = "Love-All";
     static final String SCORE_FIFTEEN_ALL = "Fifteen-All";
@@ -27,4 +27,14 @@ public class TennisGameTest {
         String score = game.getScore();
         assertEquals(SCORE_LOVE_ALL, score);
     }
+
+    @Test
+    public void testScoreFifteenAll() throws Exception {
+        TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+        game.wonPoint(PLAYER_ONE);
+        game.wonPoint(PLAYER_TWO);
+        String score = game.getScore();
+        assertEquals(SCORE_FIFTEEN_ALL, score);
+    }
+
 }
