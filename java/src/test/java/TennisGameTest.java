@@ -44,7 +44,7 @@ public class TennisGameTest {
     public void testScoreThirtyAll() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
 
-        for(int i=0; i<2;i++){
+        for (int i = 0; i < 2; i++) {
             game.wonPoint(PLAYER_ONE);
             game.wonPoint(PLAYER_TWO);
         }
@@ -57,7 +57,7 @@ public class TennisGameTest {
     public void testScoreDeuce() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
 
-        for(int i=0; i<3;i++){
+        for (int i = 0; i < 3; i++) {
             game.wonPoint(PLAYER_ONE);
             game.wonPoint(PLAYER_TWO);
         }
@@ -70,7 +70,7 @@ public class TennisGameTest {
     public void testScoreAdvantagePlayerOne() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
 
-        for(int i=0; i<3;i++){
+        for (int i = 0; i < 3; i++) {
             game.wonPoint(PLAYER_ONE);
             game.wonPoint(PLAYER_TWO);
         }
@@ -84,7 +84,7 @@ public class TennisGameTest {
     public void testScoreAdvantagePlayerTwo() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
 
-        for(int i=0; i<3;i++){
+        for (int i = 0; i < 3; i++) {
             game.wonPoint(PLAYER_ONE);
             game.wonPoint(PLAYER_TWO);
         }
@@ -98,7 +98,7 @@ public class TennisGameTest {
     public void testScoreWinForPlayerOne() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
 
-        for(int i=0; i<4;i++){
+        for (int i = 0; i < 4; i++) {
             game.wonPoint(PLAYER_ONE);
         }
 
@@ -110,12 +110,22 @@ public class TennisGameTest {
     public void testScoreWinForPlayerTwo() throws Exception {
         TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
 
-        for(int i=0; i<4;i++){
+        for (int i = 0; i < 4; i++) {
             game.wonPoint(PLAYER_TWO);
         }
 
         String score = game.getScore();
         assertEquals(SCORE_WIN_PLAYER_TWO, score);
+    }
+
+    @Test
+    public void testScoreLoveFifteen() throws Exception {
+        TennisGame game = new TennisGame(PLAYER_ONE, PLAYER_TWO);
+
+        game.wonPoint(PLAYER_TWO);
+
+        String score = game.getScore();
+        assertEquals(SCORE_LOVE + "-" + SCORE_FIFTEEN, score);
     }
 
 
